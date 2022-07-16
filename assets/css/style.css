@@ -1,0 +1,16 @@
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    font-family: 'Montserrat', sans-serif;;
+}
+
+.title{
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    color: #198754;
+}
+
+#imageAvatar{
+    width: 200px;
+    height: 200px;
+}
