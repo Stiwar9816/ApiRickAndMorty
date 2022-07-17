@@ -17,4 +17,16 @@ const listInfo = (name, species, gender, image) => {
     `
 }
 
+export const checkStatus = (status)=>{
+    if(status == 'Alive'){
+        document.querySelector(".status").className = "green";
+      }else if(status == 'unknown'){
+        document.querySelector(".status").className = "black";
+      }
+      else{
+        document.querySelector(".status").className = "red";
+      }
+}
+
+
 export default listInfo;
