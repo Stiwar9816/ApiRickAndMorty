@@ -1,54 +1,10 @@
-const URL = "https://rickandmortyapi.com/api/character"
+import {getAllAvatars,URL} from "./getCharacters.js";
+import listInfo from "./listCharacters.js";
 
-async function getNameAvatars(url){
-    try {
-        const res = await axios.get(url)
-        const name = res.data.results[0].name
-        nameAvatar.innerText = name
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-async function getSpecieAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const species = res.data.results[0].species
-        speciesAvatar.innerText = species
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-async function getGenderAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const gender = res.data.results[1].gender
-        genderAvatar.innerText = gender
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-async function getImageAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const image = res.data.results[0].image
-        return imageAvatar.innerText = await image
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-// Consultas
-const nameAvatar = document.getElementById("nameAvatar")
-nameAvatar.innerText = `${getNameAvatars(URL)}`
-
-const speciesAvatar = document.getElementById("speciesAvatar")
-speciesAvatar.innerText =  `${getSpecieAvatar(URL)}`
-
-const genderAvatar = document.getElementById("genderAvatar")
-genderAvatar.innerText = `${getGenderAvatar(URL)}`
-
-const imageAvatar = document.getElementById("imageAvatar")
-getImageAvatar(URL).then(res=> imageAvatar.innerHTML =  `<img alt="avatar" class="card-img-top" src="${res}"/>`)
+getAllAvatars(URL)
+    .then(data => {
+        data.map(item => {
+            listInfo(item.name, item.species, item.gender, item.image)
+        })
+    })
+    .catch(error => console.log(error))
