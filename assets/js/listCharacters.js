@@ -18,7 +18,6 @@ const listInfo = (name, species, gender, image, status) => {
       `
 } 
 
-
 export const checkStatus = (status)=>{
     if(status == 'Alive'){
         document.querySelector(".status").className = "green";
@@ -29,5 +28,6 @@ export const checkStatus = (status)=>{
         document.querySelector(".status").className = "red";
       }
 }
+
 
 export default listInfo;
