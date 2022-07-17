@@ -23,7 +23,7 @@ async function getSpecieAvatar(url){
 async function getGenderAvatar(url){
     try {
         const res = await axios.get(url)
-        const gender = res.data.results[0].gender
+        const gender = res.data.results[1].gender
         genderAvatar.innerText = gender
     } catch (err) {
         console.error(err)
@@ -34,7 +34,7 @@ async function getImageAvatar(url){
     try {
         const res = await axios.get(url)
         const image = res.data.results[0].image
-        imageAvatar.innerText = image
+        return imageAvatar.innerText = await image
     } catch (err) {
         console.error(err)
     }
@@ -51,4 +51,4 @@ const genderAvatar = document.getElementById("genderAvatar")
 genderAvatar.innerText = `${getGenderAvatar(URL)}`
 
 const imageAvatar = document.getElementById("imageAvatar")
-imageAvatar.innerHTML =  `<img src="${getImageAvatar(URL)}"/>`
+getImageAvatar(URL).then(res=> imageAvatar.innerHTML =  `<img alt="avatar" class="card-img-top" src="${res}"/>`)
