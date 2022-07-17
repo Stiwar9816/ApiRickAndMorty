@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Rick And Morty</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/img/axie-infinito.png"
-      type="image/x-icon"
-    />
-  </head>
-  <body class="container">
 
-    <h1 class="title">Personajes de Rick And Morty</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Rick And Morty</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="shortcut icon" href="assets/img/axie-infinito.png" type="image/x-icon" />
+</head>
 
-    <div class="card" style="width: 16rem">
-      <div class="card-info"></div>
-    </div>
+<body class="container">
 
-    <!-- Recursos externos -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <h1 class="title">Personajes de Rick And Morty</h1>
 
-    <!-- Recursos Internos -->
-    <script src="assets/js/index.js" type="module"></script>
-  </body>
+  <div class="card-info" style="width: 16rem"></div>
+
+  <div id="TableList"></div>
+  <a href="#" id="btn_prev">Prev</a>&nbsp;
+  <a href="#" id="btn_next">Next</a> 
+  page: <span id="page"></span>
+  <!-- Recursos externos -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Recursos Internos -->
+  <script src="assets/js/index.js" type="module"></script>
+</body>
+
 </html>

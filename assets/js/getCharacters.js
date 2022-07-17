@@ -1,8 +1,13 @@
-const URL = "https://rickandmortyapi.com/api/character"
+const url = (page)=>{
+     const movePage = `https://rickandmortyapi.com/api/character/?page=${page}`
+    return  movePage;
+}
+
+
 const getAllAvatars = async (url) => {
     try {
         const res = await axios(url)
-        const data = await res.data.results
+        const data =  res.data
         return data
     } catch (error) {
         console.log(error);
@@ -11,5 +16,5 @@ const getAllAvatars = async (url) => {
 
 export {
     getAllAvatars,
-    URL
+    url
 }
