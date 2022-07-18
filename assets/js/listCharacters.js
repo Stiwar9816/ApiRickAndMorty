@@ -1,5 +1,8 @@
+//Exportación de variable infoAvatar que se usa en pagination.js
 export const infoAvatar = document.querySelector(".card-info");
 
+//listInfo Recibe los parametros pasados en el archivo index.js
+//Lista todos los personas el el DOM por me dio de la clase guardada en la constante infoAvatar
 const listInfo = (name, species, gender, image, status) => {
 
      infoAvatar.innerHTML +=
@@ -17,7 +20,8 @@ const listInfo = (name, species, gender, image, status) => {
       </div>
       `
 } 
-
+//Evaluar el estado de los personajes devolviendo un color rojo a los muertos y verde a los vivos
+//Esporto check status para ser usado en el archivo index.js
 export const checkStatus = (status)=>{
     if(status == 'Alive'){
         document.querySelector(".status").className = "green";
@@ -29,5 +33,5 @@ export const checkStatus = (status)=>{
       }
 }
 
-
+//Esportación a listInfo para ser usada en index.js
 export default listInfo;

@@ -22,8 +22,8 @@
     margin: 10px;
 }
 .card-body {
-    border-color: black;
-    border-width: 1px;
+    border-color: rgb(39, 199, 39);
+    border-width: 2px;
     border-style: solid;
     padding: 10px;
     border-radius: 8px;
@@ -48,6 +48,13 @@
     font-weight: bold;
     color: red;
 }
-#TableList{
+.list-number{
     text-align: center;
+    padding: 2rem;
+    margin-bottom: 1rem;
 }
+#btn-prev, #btn-next, #page, .list-number p{
+    display: inline;
+    font-size: 22px;
+    text-decoration: none;
+} 
