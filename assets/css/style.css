@@ -14,12 +14,14 @@
 #imageAvatar{
     width: 200px;
     height: 200px;
+    border-radius: 5px;
 }
 .card-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 12px;
     margin: 10px;
+    align-content: center;
 }
 .card-body {
     border-color: rgb(39, 199, 39);
