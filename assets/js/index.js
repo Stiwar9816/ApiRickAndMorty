@@ -1,54 +1,26 @@
-const URL = "https://rickandmortyapi.com/api/character"
+import {getAllAvatars,url} from "./getCharacters.js";
+import listInfo, {checkStatus} from "./listCharacters.js";
+import { current_page, changPage } from "./pagination.js";
 
-async function getNameAvatars(url){
-    try {
-        const res = await axios.get(url)
-        const name = res.data.results[0].name
-        nameAvatar.innerText = name
-    } catch (err) {
-        console.error(err)
-    }
+//Listar todos los personajes en el DOM
+//Exportación de listAvatars para ser usada en pagination.js
+export const listAvatars = () => {
+    return getAllAvatars(url(`${current_page}`))
+        //En caso de resolverse la promesa devuelvame la data
+        .then(data => {
+            //Recorro el array de resultados enviando los datos por parametros a listInfo y checkStatus
+            data.results.map(item => {
+                listInfo(item.name, item.species, item.gender, item.image, item.status)
+                checkStatus(item.status)
+            })
+        })
+        //En caso ocurra un error al resolver la promesa, muestreme ese error
+        .catch(error => console.log(error))
 }
 
-async function getSpecieAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const species = res.data.results[0].species
-        speciesAvatar.innerText = species
-    } catch (err) {
-        console.error(err)
-    }
-}
 
-async function getGenderAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const gender = res.data.results[1].gender
-        genderAvatar.innerText = gender
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-async function getImageAvatar(url){
-    try {
-        const res = await axios.get(url)
-        const image = res.data.results[0].image
-        return imageAvatar.innerText = await image
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-// Consultas
-const nameAvatar = document.getElementById("nameAvatar")
-nameAvatar.innerText = `${getNameAvatars(URL)}`
-
-const speciesAvatar = document.getElementById("speciesAvatar")
-speciesAvatar.innerText =  `${getSpecieAvatar(URL)}`
-
-const genderAvatar = document.getElementById("genderAvatar")
-genderAvatar.innerText = `${getGenderAvatar(URL)}`
-
-const imageAvatar = document.getElementById("imageAvatar")
-getImageAvatar(URL).then(res=> imageAvatar.innerHTML =  `<img alt="avatar" class="rounded card-img-top" src="${res}"/>`)
+//Mustra los datos en el DOM una vez el objeto window inicialize
+window.onload = function () {
+    listAvatars();
+    changPage(current_page);
+};
